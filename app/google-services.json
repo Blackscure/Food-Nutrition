@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "944509957213",
+    "project_id": "food-f6bf0",
+    "storage_bucket": "food-f6bf0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:944509957213:android:dcf47b5ded6066e71789b4",
+        "android_client_info": {
+          "package_name": "com.yahi.food_nutrition"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "944509957213-2g7vfg4oqi38h5mjpc7rbk42317gank2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yahi.food_nutrition",
+            "certificate_hash": "e87beb86242d2f46ead2127e88f2379a2f3ddc3d"
+          }
+        },
+        {
+          "client_id": "944509957213-4etn76hboj1rp5bct9q9onjsa6kj5jao.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBErlon8WInJG498w9vqOIlDFstPyD-xk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "944509957213-4etn76hboj1rp5bct9q9onjsa6kj5jao.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

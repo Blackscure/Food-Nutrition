@@ -9,7 +9,7 @@
 		tools:context=".RegisterActivity">
 	
 	<androidx.appcompat.widget.Toolbar
-			android:id="@+id/RegistertoolBar"
+			android:id="@+id/registertoolBar"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:background="#fff"
@@ -32,7 +32,7 @@
 	/>
 	
 	<EditText
-			android:id="@+id/loginPasswd"
+			android:id="@+id/registerPasswd"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:hint="Enter Password"

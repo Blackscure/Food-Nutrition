@@ -25,9 +25,9 @@ public class MainActivity extends AppCompatActivity {
 
        // topAnim = AnimationUtils.loadAnimation(this,R.anim.top_animation);
        // bottomAnim = AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
-        textView = findViewById(R.id.text);
+        //textView = findViewById(R.id.text);
 
-        textView.setAnimation(bottomAnim);
+       // textView.setAnimation(bottomAnim);
 
         new Handler().postDelayed(new Runnable() {
             @Override

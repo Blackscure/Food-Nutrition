@@ -1,5 +1,6 @@
 package com.yahi.food_nutrition;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.text.TextUtils;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,6 +28,8 @@ public class RegisterActivity extends AppCompatActivity {
     private TextView RegQn;
     private FirebaseAuth mAuth;
 
+    private ProgressDialog loader;
+
 
 
     @Override
@@ -40,6 +44,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
+        loader = new ProgressDialog(this);
 
 
         RegEmail = findViewById(R.id.registerEmail);
@@ -70,16 +75,30 @@ public class RegisterActivity extends AppCompatActivity {
                 if (TextUtils.isEmpty(password)){
                     RegPwd.setError("password is required");
                     return;
+                } else {
+                    loader.setMessage("Registration in Progress");
+                    loader.setCanceledOnTouchOutside(false);
+                    loader.show();
+                    mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+
+                            if(task.isSuccessful()){
+                                Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
+                                startActivity(intent);
+                                finish();
+                                loader.dismiss();
+                            } else {
+                                String error = task.getException().toString();
+                                Toast.makeText(RegisterActivity.this, "Registration failed" + error, Toast.LENGTH_SHORT).show();
+                                loader.dismiss();
+                            }
+
+                        }
+                    });
                 }
 
-                mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        Intent intent = new Intent(RegisterActivity.this, HomeActivity.class);
-                        startActivity(intent);
-                        finish();
-                    }
-                });
+
             }
 
         });

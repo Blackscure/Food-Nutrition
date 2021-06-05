@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-           android:layout_width="match_parent"
+              xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
             android:orientation="vertical"
            android:layout_height="match_parent">
 	
@@ -16,7 +16,6 @@
 			android:textStyle="bold"
 			android:textSize="20sp"
 			/>
-	
 	<LinearLayout
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
@@ -36,15 +35,142 @@
 		<RelativeLayout
 				android:layout_width="0dp"
 				android:layout_height="wrap_content"
+				android:layout_weight="4">
+			<EditText
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:hint="Meal"
+					android:textStyle="bold"
+					android:layout_margin="10dp"/>
+		</RelativeLayout>
+	</LinearLayout>
+	
+	<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_margin="10dp"
+			android:orientation="horizontal">
+		<RelativeLayout
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
 				android:layout_weight="2">
 			<TextView
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
-					android:text="Meal"
+					android:text="Brand"
 					android:textStyle="bold"
 					android:layout_margin="10dp"/>
 		</RelativeLayout>
-		
+		<RelativeLayout
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="4">
+			<EditText
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:hint="Brand name"
+					android:textStyle="bold"
+					android:layout_margin="10dp"/>
+		</RelativeLayout>
+	
 	</LinearLayout>
+	
+	<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_margin="10dp"
+			android:orientation="horizontal">
+		<RelativeLayout
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="2">
+			<TextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:text="Calories"
+					android:textStyle="bold"
+					android:layout_margin="10dp"/>
+		</RelativeLayout>
+		<RelativeLayout
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="4">
+			<EditText
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:hint="Number of Calories"
+					android:textStyle="bold"
+					android:layout_margin="10dp"/>
+		</RelativeLayout>
+	
+	</LinearLayout>
+	<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_margin="10dp"
+			android:orientation="horizontal">
+		<RelativeLayout
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="2">
+			<TextView
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:text="Sodium"
+					android:textStyle="bold"
+					android:layout_margin="10dp"/>
+		</RelativeLayout>
+		<RelativeLayout
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				android:layout_weight="4">
+			<EditText
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:hint="Quantity of sodium"
+					android:textStyle="bold"
+					android:layout_margin="10dp"/>
+		</RelativeLayout>
+	</LinearLayout>
+	
+	<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+		
+		<RelativeLayout
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				tools:ignore="Suspicious0dp"
+				android:layout_weight="2">
+			<Button
+					android:id="@+id/cancelBtn"
+					android:text="Cancel"
+					android:textColor="#fff"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:background="@drawable/background_design"
+					android:layout_margin="10dp"
+					android:textSize="18sp"
+					android:textStyle="bold"/>
+		</RelativeLayout>
+		<RelativeLayout
+				android:layout_width="0dp"
+				android:layout_height="wrap_content"
+				tools:ignore="Suspicious0dp"
+				android:layout_weight="2">
+			<Button
+					android:id="@+id/saveBtn"
+					android:text="Save"
+					android:textColor="#fff"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:background="@drawable/background_design"
+					android:layout_margin="10dp"
+					android:textSize="18sp"
+					android:textStyle="bold"/>
+		</RelativeLayout>
+	</LinearLayout>
+	
 
 </LinearLayout>

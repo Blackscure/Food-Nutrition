@@ -1,4 +1,5 @@
 <resources>
 	<string name="app_name">Food-nutrition</string>
 	<string name="don_t_have_an_account_register">Don\'t have an account? Register</string>
+	<string name="enter_email">Enter Email</string>
 </resources>

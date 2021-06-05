@@ -19,8 +19,8 @@
 			android:id="@+id/registerEmail"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:hint="Enter Email"
-			android:layout_marginTop="230dp"
+			android:hint="@string/enter_email"
+			android:layout_marginTop="130dp"
 			android:layout_marginBottom="10dp"
 			android:layout_marginRight="10dp"
 			android:layout_marginLeft="10dp"
@@ -58,9 +58,9 @@
 			android:id="@+id/registerPageQuestion"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:text="@string/don_t_have_an_account_register"
+			android:text="Already have an account Sign In"
 			android:textColor="#fff"
-			android:layout_marginLeft="100dp"
+			android:layout_marginLeft="80dp"
 			android:layout_marginTop="10dp"
 	/>
 

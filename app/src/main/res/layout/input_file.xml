@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
             android:orientation="vertical"
+              android:scrollbars="horizontal"
            android:layout_height="match_parent">
 	
 	<TextView
@@ -104,34 +105,7 @@
 		</RelativeLayout>
 	
 	</LinearLayout>
-	<LinearLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_margin="10dp"
-			android:orientation="horizontal">
-		<RelativeLayout
-				android:layout_width="0dp"
-				android:layout_height="wrap_content"
-				android:layout_weight="2">
-			<TextView
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:text="Sodium"
-					android:textStyle="bold"
-					android:layout_margin="10dp"/>
-		</RelativeLayout>
-		<RelativeLayout
-				android:layout_width="0dp"
-				android:layout_height="wrap_content"
-				android:layout_weight="4">
-			<EditText
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:hint="Quantity of sodium"
-					android:textStyle="bold"
-					android:layout_margin="10dp"/>
-		</RelativeLayout>
-	</LinearLayout>
+ 
 	
 	<LinearLayout
 			android:layout_width="match_parent"

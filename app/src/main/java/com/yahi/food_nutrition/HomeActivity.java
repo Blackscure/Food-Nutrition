@@ -1,22 +1,30 @@
 package com.yahi.food_nutrition;
 
 import android.app.ProgressDialog;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Toast;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.text.DateFormat;
+import java.util.Date;
 
 public class HomeActivity extends AppCompatActivity {
     private Toolbar toolbar;
@@ -95,7 +103,43 @@ public class HomeActivity extends AppCompatActivity {
                 String mMeal = meal.getText().toString().trim();
                 String mBrand = brand.getText().toString().trim();
                 String mCalories = calories.getText().toString().trim();
+                String id = reference.push().getKey();
+                String date = DateFormat.getDateInstance().format(new Date());
+
+                if (TextUtils.isEmpty(mMeal)){
+                    meal.setError("Meal Required");
+                    return;
+                }
+                if (TextUtils.isEmpty(mBrand)){
+                    brand.setError("Brand required");
+                    return;
+                }
+                if (TextUtils.isEmpty(mCalories)){
+                    calories.setError("Calories Required");
+                    return;
+                }else {
+                    loader.setMessage("Adding your data");
+                    loader.setCanceledOnTouchOutside(false);
+                    loader.show();
+
+                    Model model = new  Model(mMeal,mBrand,mCalories,id,date);
+
+                  /*  reference.child(id).setValue(model).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if(meal.isSuccessful()){
+                                Toast.makeText(HomeActivity.this, "Meal has been inserted", Toast.LENGTH_SHORT).show();
+                                loader.dismiss();
+                            }else {
+
+                            }
+                        }
+                    });*/
+                }
+                dialog.dismiss();
             }
+
         });
+        dialog.show();
     }
 }

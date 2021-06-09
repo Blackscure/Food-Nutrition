@@ -38,6 +38,7 @@
 				android:layout_height="wrap_content"
 				android:layout_weight="4">
 			<EditText
+					android:id="@+id/meal"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:hint="Meal"
@@ -67,6 +68,7 @@
 				android:layout_height="wrap_content"
 				android:layout_weight="4">
 			<EditText
+					android:id="@+id/brand"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:hint="Brand name"
@@ -97,6 +99,7 @@
 				android:layout_height="wrap_content"
 				android:layout_weight="4">
 			<EditText
+					android:id="@+id/calories"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:hint="Number of Calories"

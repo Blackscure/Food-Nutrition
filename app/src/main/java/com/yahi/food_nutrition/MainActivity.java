@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int SPLASH = 3300;
 
     Animation topAnim, bottomAnim;
-    TextView textView;
+    //TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

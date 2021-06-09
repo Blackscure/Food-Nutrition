@@ -30,8 +30,7 @@ public class HomeActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private RecyclerView recyclerView;
     private FloatingActionButton floatingActionButton;
-    private EditText meal,brand,calories;
-    private Button save, cancel;
+
 
     private DatabaseReference reference;
     private FirebaseAuth mAuth;
@@ -60,6 +59,7 @@ public class HomeActivity extends AppCompatActivity {
 
         loader = new ProgressDialog(this);
 
+        mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
         onlineUserId = mUser.getUid();
         reference = FirebaseDatabase.getInstance().getReference().child("meals").child(onlineUserId);
@@ -124,17 +124,19 @@ public class HomeActivity extends AppCompatActivity {
 
                     Model model = new  Model(mMeal,mBrand,mCalories,id,date);
 
-                  /*  reference.child(id).setValue(model).addOnCompleteListener(new OnCompleteListener<Void>() {
+                   reference.child(id).setValue(model).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-                            if(meal.isSuccessful()){
+                            if(task.isSuccessful()){
                                 Toast.makeText(HomeActivity.this, "Meal has been inserted", Toast.LENGTH_SHORT).show();
                                 loader.dismiss();
                             }else {
-
+                                String error = task.getException().toString();
+                                Toast.makeText(HomeActivity.this, "Failed" + error, Toast.LENGTH_SHORT).show();
+                                loader.dismiss();
                             }
                         }
-                    });*/
+                    });
                 }
                 dialog.dismiss();
             }

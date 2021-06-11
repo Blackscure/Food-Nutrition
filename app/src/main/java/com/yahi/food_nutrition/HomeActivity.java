@@ -38,6 +38,11 @@ public class HomeActivity extends AppCompatActivity {
     private String onlineUserId;
     private ProgressDialog loader;
 
+    private String key = "";
+    private String meal;
+    private String barnd;
+    private String calories;
+
     public HomeActivity() {
     }
 
@@ -161,6 +166,18 @@ public class HomeActivity extends AppCompatActivity {
                 holder.setBrand(model.getBrand());
                 holder.setCalories(model.getCalories());
 
+                holder.mview.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        key = getRef(position).getKey();
+                        meal = model.getMeal();
+                        barnd = model.getBrand();
+                        calories = model.getCalories();
+
+                        updateMeal();
+                    }
+                });
+
             }
 
             @NonNull
@@ -199,5 +216,82 @@ public class HomeActivity extends AppCompatActivity {
             TextView dateTextView = mview.findViewById(R.id.dateTv);
             dateTextView.setText(date);
         }
+    }
+
+    private  void updateMeal(){
+        AlertDialog.Builder myDialog = new AlertDialog.Builder(this);
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View view = inflater.inflate(R.layout.update_data,null);
+        myDialog.setView(view);
+
+        AlertDialog dialog = myDialog.create();
+
+        EditText mMeal = view.findViewById(R.id.mEditTextMeal);
+        EditText mBrand = view.findViewById(R.id.mEditTextBrand);
+        EditText mCalories = view.findViewById(R.id.mEditTextCalories);
+
+        mMeal.setText(meal);
+        mMeal.setSelection(meal.length());
+
+        mBrand.setText(barnd);
+        mBrand.setSelection(barnd.length());
+
+        mCalories.setText(calories);
+        mCalories.setSelection(calories.length());
+
+        Button delButton = view.findViewById(R.id.btnDelete);
+        Button updateButton = view.findViewById(R.id.updateBtn);
+
+        updateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                meal = mMeal.getText().toString().trim();
+                barnd = mBrand.getText().toString().trim();
+                calories = mCalories.getText().toString().trim();
+
+                String date = DateFormat.getDateInstance().format(new Date());
+
+                Model model = new Model(meal,barnd,calories,key,date);
+
+                reference.child(key).setValue(model).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()){
+                            Toast.makeText(HomeActivity.this, "Data has been updated Succesfully",Toast.LENGTH_SHORT).show();
+                        }else {
+                            String err = task.getException().toString();
+                            Toast.makeText(HomeActivity.this, "update Faild"+err,Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                });
+                dialog.dismiss();
+            }
+        });
+
+        delButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                reference.child(key).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()){
+                            Toast.makeText(HomeActivity.this, "Meal Deleted Succesfully",Toast.LENGTH_SHORT).show();
+                        }else {
+
+                            String err = task.getException().toString();
+                            Toast.makeText(HomeActivity.this, "Meal faild t Del"+err,Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                });
+                dialog.dismiss();
+            }
+        });
+
+
+
+
+        dialog.show();
     }
 }

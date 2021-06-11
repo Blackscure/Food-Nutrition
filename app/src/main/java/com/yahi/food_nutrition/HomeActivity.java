@@ -182,22 +182,22 @@ public class HomeActivity extends AppCompatActivity {
             mview = itemView;
         }
 
-        public void setDate(String meal){
-            TextView dateTextView = mview.findViewById(R.id.datetv);
-            dateTextView.setText(meal);
-        }
-
         public void setMeal(String meal){
-            TextView mealTextView = mview.findViewById(R.id.mealtv);
+            TextView mealTextView = mview.findViewById(R.id.mealTv);
             mealTextView.setText(meal);
         }
         public void setBrand(String brand){
-            TextView brandTextView = mview.findViewById(R.id.brandtv);
+            TextView brandTextView = mview.findViewById(R.id.brandTv);
             brandTextView.setText(brand);
         }
         public void setCalories(String calories){
-            TextView caloriesTextView = mview.findViewById(R.id.caloriestv);
+            TextView caloriesTextView = mview.findViewById(R.id.caloriesTv);
             caloriesTextView.setText(calories);
+        }
+
+        public void setDate(String date){
+            TextView dateTextView = mview.findViewById(R.id.dateTv);
+            dateTextView.setText(date);
         }
     }
 }
